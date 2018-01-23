@@ -1,4 +1,4 @@
-package br.com.kazale.pontointeligente.api;
+package br.com.kazale.pontointeligente.api.repositories;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
