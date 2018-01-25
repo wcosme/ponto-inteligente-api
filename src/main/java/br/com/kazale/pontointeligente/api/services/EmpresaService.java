@@ -1,4 +1,4 @@
-package br.com.kazale.pontointeligente.services;
+package br.com.kazale.pontointeligente.api.services;
 
 import java.util.Optional;
 
@@ -12,7 +12,7 @@ public interface EmpresaService {
 	 * @param cnpj
 	 * @return Optional<Empresa>
 	 */
-	public Optional<Empresa> buscarPorCnpj(String cnpj);
+	Optional<Empresa> buscarPorCnpj(String cnpj);
 	
 	/**
 	 * Realiza o cadastro de uma nova empresa.
@@ -20,6 +20,6 @@ public interface EmpresaService {
 	 * @param empresa
 	 * @return Empresa
 	 */
-	public Empresa persistir(Empresa empresa);
+	Empresa persistir(Empresa empresa);
 
 }

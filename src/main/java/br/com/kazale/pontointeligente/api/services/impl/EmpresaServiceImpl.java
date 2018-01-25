@@ -1,4 +1,4 @@
-package br.com.kazale.pontointeligente.services.impl;
+package br.com.kazale.pontointeligente.api.services.impl;
 
 import java.util.Optional;
 
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.kazale.pontointeligente.api.entities.Empresa;
 import br.com.kazale.pontointeligente.api.repositories.EmpresaRepository;
-import br.com.kazale.pontointeligente.services.EmpresaService;
+import br.com.kazale.pontointeligente.api.services.EmpresaService;
 
 @Service
 public class EmpresaServiceImpl implements EmpresaService {
