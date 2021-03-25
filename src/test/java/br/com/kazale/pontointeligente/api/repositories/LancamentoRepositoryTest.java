@@ -1,33 +1,28 @@
 package br.com.kazale.pontointeligente.api.repositories;
 
-import static org.junit.Assert.assertEquals;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import br.com.kazale.pontointeligente.api.entities.Empresa;
 import br.com.kazale.pontointeligente.api.entities.Funcionario;
 import br.com.kazale.pontointeligente.api.entities.Lancamento;
 import br.com.kazale.pontointeligente.api.enums.PerfilEnum;
 import br.com.kazale.pontointeligente.api.enums.TipoEnum;
-import br.com.kazale.pontointeligente.api.repositories.EmpresaRepository;
-import br.com.kazale.pontointeligente.api.repositories.FuncionarioRepository;
-import br.com.kazale.pontointeligente.api.repositories.LancamentoRepository;
 import br.com.kazale.pontointeligente.api.utils.PasswordUtils;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
 public class LancamentoRepositoryTest {
@@ -43,7 +38,7 @@ public class LancamentoRepositoryTest {
 	
 	private Long funcionarioId;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		Empresa empresa = this.empresaRepository.save(obterDadosEmpresa());
 		
@@ -54,7 +49,7 @@ public class LancamentoRepositoryTest {
 		this.lancamentoRepository.save(obterDadosLancamentos(funcionario));
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		this.empresaRepository.deleteAll();
 	}
@@ -68,7 +63,7 @@ public class LancamentoRepositoryTest {
 	
 	@Test
 	public void testBuscarLancamentosPorFuncionarioIdPaginado() {
-		PageRequest page = new PageRequest(0, 10);
+		PageRequest page = PageRequest.of(0, 10);
 		Page<Lancamento> lancamentos = this.lancamentoRepository.findByFuncionarioId(funcionarioId, page);
 		
 		assertEquals(2, lancamentos.getTotalElements());
