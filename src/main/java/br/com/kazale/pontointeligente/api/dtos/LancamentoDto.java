@@ -2,7 +2,8 @@ package br.com.kazale.pontointeligente.api.dtos;
 
 import java.util.Optional;
 
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.NotEmpty;
+
 
 public class LancamentoDto {
 	
